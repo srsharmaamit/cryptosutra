@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "sutra";
+  src: local("sutra"),
+    url(./assets/fonts/Metropolis-Regular.ttf) format("truetype");
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "sutra", sans-serif;
+  background-color: hsl(0deg 0% 98%);
+}
