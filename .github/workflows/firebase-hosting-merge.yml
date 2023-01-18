@@ -14,11 +14,10 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: '16.x'
-      - run: node githubConfig.js
-        env:
-          APP_CONFIG: '${{ secrets.APP_CONFIG }}'
       - run: npm install
       - run: npm run build:prod
+        env:
+          APP_CONFIG: '${{ secrets.APP_CONFIG }}'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

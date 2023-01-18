@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "release": "standard-version && git push --follow-tags origin master",
-    "build:prod": "npm run build"
+    "config": "ts-node -O '{\"module\": \"commonjs\"}' ./githubConfig.js",
+    "build:prod": "npm run config && npm run build"
   },
   "private": true,
   "dependencies": {
