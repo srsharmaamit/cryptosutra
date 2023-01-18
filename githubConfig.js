@@ -1,5 +1,3 @@
-import { name, version } from "./package.json";
-
 const setEnv = () => {
   const fs = require("fs");
   const path = require("path");
@@ -21,8 +19,6 @@ const setEnv = () => {
    firebaseConfig: {
         apiKey: '${process.env.FIREBASE_API_KEY}'
     },
-    name: '${name}',
-    version: '${version}',
     title: '${process.env.TITLE}'
 };
 `;
