@@ -17,7 +17,7 @@ export const environment = {
     appId: 'undefined',
     measurementId: 'undefined',
   },
-  title: 'undefined',
+  title: '${{ secrets.TITLE }}',
   name: packageInfo.name,
   version: packageInfo.version,
 };
