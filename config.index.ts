@@ -25,9 +25,12 @@ const setEnv = () => {
 `;
   console.log(
     colors.magenta(
-      'The file `environment.prod.ts` will be written with the following content: \n'
+      `The file \`environment.prod.ts\` will be written with the following content: ${process.env.TITLE} \n`
     )
   );
+  console.log('-------------------------------------------------');
+  console.log(Object.keys(process.env));
+  console.log('-------------------------------------------------');
   writeFile(targetPath, envConfigFile, (err: any) => {
     if (err) {
       console.error(err);
