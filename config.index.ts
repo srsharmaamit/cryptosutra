@@ -2,6 +2,9 @@ import { name, version } from './package.json';
 
 const setEnv = () => {
   const fs = require('fs');
+  const path = require('path');
+  const content = `${process.env.APP_CONFIG}`;
+
   const writeFile = fs.writeFile;
   // Configure Angular `environment.ts` file path
   const targetPath = './src/environments/environment.prod.ts';
@@ -25,12 +28,16 @@ const setEnv = () => {
 `;
   console.log(
     colors.magenta(
-      `The file \`environment.prod.ts\` will be written with the following content: ${process.env.TITLE} \n`
+      `The file \`environment.prod.ts\` will be written with the following content: ${content} \n`
     )
   );
 
   console.log('-------------------------------------------------');
-  console.log('${{ secrets.TITLE }}');
+  Object.keys(process.env).forEach((key: string) => {
+    if (key === 'APP_CONFIG') {
+      console.log(key + '' + process.env[key]);
+    }
+  });
   console.log('-------------------------------------------------');
   writeFile(targetPath, envConfigFile, (err: any) => {
     if (err) {
