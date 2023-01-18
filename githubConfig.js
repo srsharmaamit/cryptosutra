@@ -1,18 +1,18 @@
-import { name, version } from './package.json';
+import { name, version } from "./package.json";
 
 const setEnv = () => {
-  const fs = require('fs');
-  const path = require('path');
+  const fs = require("fs");
+  const path = require("path");
   const content = `${process.env.APP_CONFIG}`;
 
   const writeFile = fs.writeFile;
   // Configure Angular `environment.ts` file path
-  const targetPath = './src/environments/environment.prod.ts';
+  const targetPath = "./src/environments/environment.prod.ts";
   // Load node modules
-  const colors = require('colors');
-  const appVersion = require('./package.json').version;
-  require('dotenv').config({
-    path: 'src/environments/.env',
+  const colors = require("colors");
+  const appVersion = require("./package.json").version;
+  require("dotenv").config({
+    path: "src/environments/.env",
   });
   // `environment.ts` file structure
   // @ts-ignore
@@ -32,14 +32,14 @@ const setEnv = () => {
     )
   );
 
-  console.log('-------------------------------------------------');
-  Object.keys(process.env).forEach((key: string) => {
-    if (key === 'APP_CONFIG') {
-      console.log(key + '' + process.env[key]);
+  console.log("-------------------------------------------------");
+  Object.keys(process.env).forEach((key) => {
+    if (key === "APP_CONFIG") {
+      console.log(key + "" + process.env[key]);
     }
   });
-  console.log('-------------------------------------------------');
-  writeFile(targetPath, envConfigFile, (err: any) => {
+  console.log("-------------------------------------------------");
+  writeFile(targetPath, envConfigFile, (err) => {
     if (err) {
       console.error(err);
       throw err;
