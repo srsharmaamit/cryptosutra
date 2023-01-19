@@ -4,7 +4,14 @@ export const APP_ROUTES: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'sutra',
+    redirectTo: 'auth',
+  },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./main/auth/auth-routing').then(
+        (component: { authRoutes: Route[] }) => component.authRoutes
+      ),
   },
   {
     path: 'sutra',
@@ -15,6 +22,6 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'sutra',
+    redirectTo: 'auth',
   },
 ];

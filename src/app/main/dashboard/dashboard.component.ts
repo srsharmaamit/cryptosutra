@@ -12,5 +12,5 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  title = 'Crypto-Zenith';
+  title = 'Crypto-Sutra';
 }

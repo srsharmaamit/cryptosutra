@@ -1,7 +1,7 @@
 @font-face {
   font-family: "sutra";
   src: local("sutra"),
-    url(./assets/fonts/Metropolis-Regular.ttf) format("truetype");
+  url(./assets/fonts/Metropolis-Regular.ttf) format("truetype");
 }
 
 html,
@@ -12,5 +12,5 @@ body {
 body {
   margin: 0;
   font-family: "sutra", sans-serif;
-  background-color: hsl(0deg 0% 98%);
+  background-color: hsl(11deg 69% 68% / 88%);
 }
