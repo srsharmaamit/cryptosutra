@@ -1,0 +1,21 @@
+<h1 class="title">Crypto Sutra</h1>
+<div class="container">
+  <form
+    (ngSubmit)="onAuthenticationSubmission()"
+    [formGroup]="authenticationForm"
+    class="authForm"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>User Name</mat-label>
+      <input formControlName="userName" matInput type="text" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput type="password" />
+    </mat-form-field>
+    <button (submit)="onLoginClick()" color="primary" mat-raised-button>
+      Login
+    </button>
+  </form>
+  <img alt="monster" class="monster-image" src="assets/images/monster.png" />
+</div>

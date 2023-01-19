@@ -1,0 +1,41 @@
+.title {
+  text-align: center;
+  color: honeydew;
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: auto;
+  transform: translateY(100%);
+  transition: width 2s, height 2s, transform 2s;
+}
+
+.monster-image {
+  width: 20%;
+  align-self: center;
+  margin-top: 15%;
+  transition: width 2s, height 2s, transform 2s;
+}
+
+.container {
+  display: flex;
+  margin: auto;
+  gap: 30px;
+  flex-direction: column;
+}
+
+@media (max-width: 800px) {
+  .authForm {
+    width: 60%;
+    margin: auto;
+    transform: translateY(160%);
+  }
+
+  .monster-image {
+    width: 45%;
+    align-self: center;
+    margin-top: -132px;
+  }
+}
