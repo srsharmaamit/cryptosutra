@@ -3,15 +3,9 @@
     "rules": "firebase.database.rules.json"
   },
   "hosting": {
-    "predeploy": [
-      "echo \"deployed by Amit\""
-    ],
+    "predeploy": ["echo \"Deployment triggered by Amit\""],
     "public": "dist/cryptosutra",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",

@@ -1,13 +1,11 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-// @ts-ignore
-import packageInfo from '../../package.json';
 
 export const environment = {
   production: false,
-  alphaVantageKey: '',
-  alphaVantageEndpoint: 'https://www.alphavantage.co/query?',
+  alphaVantageKey: 'undefined',
+  alphaVantageEndpoint: 'undefined',
   firebaseConfig: {
     apiKey: 'undefined',
     authDomain: 'undefined',
@@ -17,9 +15,6 @@ export const environment = {
     appId: 'undefined',
     measurementId: 'undefined',
   },
-  title: '${{ secrets.TITLE }}',
-  name: packageInfo.name,
-  version: packageInfo.version,
 };
 
 /*

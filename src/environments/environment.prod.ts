@@ -1,10 +1,7 @@
-// @ts-ignore
-import packageInfo from '../../package.json';
-
 export const environment = {
   production: true,
-  alphaVantageKey: 'KFWI2VCL52WUISLJ',
-  alphaVantageEndpoint: 'https://www.alphavantage.co/query?',
+  alphaVantageKey: 'undefined',
+  alphaVantageEndpoint: 'undefined',
   firebaseConfig: {
     apiKey: 'undefined',
     authDomain: 'undefined',
@@ -14,7 +11,4 @@ export const environment = {
     appId: 'undefined',
     measurementId: 'undefined',
   },
-  title: '${{ secrets.TITLE }}',
-  name: packageInfo.name,
-  version: packageInfo.version,
 };
