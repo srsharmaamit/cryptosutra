@@ -1,6 +1,13 @@
 <div class="container">
   <div class="title">Crypto Monster</div>
-  <img alt="logo" class="logo" src="assets/images/logo-no-background.svg" />
+  <img
+    alt="logo"
+    class="logo"
+    height="180"
+    ngSrc="assets/images/logo-no-background.svg"
+    priority
+    width="180"
+  />
   <form
     (ngSubmit)="onAuthenticationSubmission()"
     [formGroup]="authenticationForm"
@@ -23,5 +30,12 @@
       Login
     </button>
   </form>
-  <img alt="monster" class="monster-image" src="assets/images/monster.png" />
+  <img
+    [height]="getMonsterImageHeight()"
+    alt="monster"
+    class="monster-image"
+    ngSrc="assets/images/monster.png"
+    priority
+    width="140"
+  />
 </div>

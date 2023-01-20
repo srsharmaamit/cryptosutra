@@ -13,17 +13,24 @@ import {
 } from '@angular/platform-browser/animations';
 import { appInterceptor } from '@shared/interceptor';
 import { importProvidersFrom } from '@angular/core';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 import { environment } from '@environment/environment.prod';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 bootstrapApplication(AppComponent, {
   providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig },
     provideHttpClient(withInterceptors([appInterceptor])),
     provideAnimations(),
     provideRouter(APP_ROUTES, withPreloading(PreloadAllModules)),
     importProvidersFrom(
       BrowserAnimationsModule,
-      provideFirebaseApp(() => initializeApp(environment.firebaseConfig))
+      provideFirestore(
+        () => getFirestore(),
+        provideAuth(() => getAuth())
+      ),
+
     ),
   ],
 }).catch((error) => console.error(error));
