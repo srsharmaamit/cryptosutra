@@ -17,7 +17,9 @@ import {
   AngularFireAuth,
   AngularFireAuthModule,
 } from '@angular/fire/compat/auth';
-import { getAuth, sendSignInLinkToEmail } from '@angular/fire/auth';
+import { Store } from '@ngrx/store';
+import { login, loginFailure } from '@shared/action';
+import { AuthState } from '@shared/states';
 
 @Component({
   selector: 'sutra-auth',
@@ -38,37 +40,24 @@ import { getAuth, sendSignInLinkToEmail } from '@angular/fire/auth';
 })
 export class AuthComponent {
   authenticationForm = new FormGroup({
-    userName: new FormControl('amit@gmail.com', {
-      validators: [Validators.required],
-      updateOn: 'blur',
-    }),
-    password: new FormControl('asdfa', [Validators.required]),
+    userName: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
   });
-  actionCodeSettings = {
-    // URL you want to redirect back to
-    url: 'https://vidhi.co.uk/sutra',
-    // This must be true.
-    handleCodeInApp: true,
-  };
 
   constructor(
     private auth: AngularFireAuth,
     private router: Router,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private store: Store<AuthState>
   ) {}
 
   async onAuthenticationSubmission() {
-    if (this.authenticationForm.valid) {
-      const { userName, password } = this.authenticationForm.value;
+    const { userName, password } = this.authenticationForm.value;
+    if (this.authenticationForm.valid && userName) {
       try {
-        const auth = getAuth();
-        const response = await sendSignInLinkToEmail(
-          auth,
-          userName!,
-          this.actionCodeSettings
-        );
-        window.localStorage.setItem('emailForSignIn', userName!);
+        this.store.dispatch(login({ userName }));
       } catch (error: any) {
+        this.store.dispatch(loginFailure({ loginError: error.message }));
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode + ' : ' + errorMessage);
